@@ -11,6 +11,25 @@ rm -rf $TMP
 # Number of CPUs + 1
 export NUMJOBS=$(expr $(lscpu | grep -E '^CPU\(s\):' | xargs | cut -d ' ' -f 2) + 1)
 
+echo "###"
+echo "### Building: source/beautifulsoup ..."
+echo "###"
+sleep 3
+
+( cd beautifulsoup
+  sh beautifulsoup.SlackBuild || exit 1
+  upgradepkg --install-new --reinstall $TMP/beautifulsoup*.txz
+) || exit 1
+
+echo "###"
+echo "### Building: source/cssselect ..."
+echo "###"
+sleep 3
+
+( cd cssselect
+  sh cssselect.SlackBuild || exit 1
+  upgradepkg --install-new --reinstall $TMP/cssselect*.txz
+) || exit 1
 
 echo "###"
 echo "### Building: source/lxml ..."
