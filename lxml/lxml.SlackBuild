@@ -74,12 +74,12 @@ find -L . \
 
 python setup.py build
 LANG=en_US.UTF-8 make PYTHON=python2 test
-python setup.py install --root=$PKG --optimize=1
+python setup.py install --root=$PKG --skip-build --optimize=1
 
 if $(python3 -c 'import os' 2>/dev/null); then
   python3 setup.py build
   LANG=en_US.UTF-8 make PYTHON=python3 test
-  python3 setup.py install --root=$PKG --optimize=1
+  python3 setup.py install --root=$PKG --skip-build --optimize=1
 fi
 
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
