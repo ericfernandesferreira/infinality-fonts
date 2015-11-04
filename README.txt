@@ -12,6 +12,8 @@ Requerimentos:
 - slackware64 current
 
 Conteúdo:
+- beautifulsoup
+- cssselect
 - lxml
 - freetype
 - fontconfig
@@ -38,6 +40,8 @@ Requirements:
 - slackware64 current
 
 Contents:
+- beautifulsoup
+- cssselect
 - lxml
 - freetype
 - fontconfig
