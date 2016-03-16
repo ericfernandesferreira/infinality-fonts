@@ -84,7 +84,7 @@ done
 chown -R root:root .
 CFLAGS="$SLKCFLAGS" make setup CFG="--prefix=/usr --libdir=/usr/lib${LIBDIRSUFFIX} --build=$ARCH-slackware-linux"
 
-make -j5
+make
 make install DESTDIR=$PKG
 
 # This shouldn't be needed (apps should pick up -I/usr/include/freetype2 from
@@ -107,9 +107,7 @@ mv $PKG/usr/share/man $PKG/usr/man
 find $PKG/usr/man -type f -exec gzip -9 {} \;
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
-cp -a docs README \
-  $PKG/usr/doc/freetype-$VERSION
-# too much
+cp -a docs README $PKG/usr/doc/freetype-$VERSION
 rm -rf $PKG/usr/doc/$PRGNAM-$VERSION/docs/reference
 
 # infinality-bundle

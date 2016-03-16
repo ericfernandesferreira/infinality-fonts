@@ -38,8 +38,6 @@ fi
 
 wget -c http://www.freedesktop.org/software/fontconfig/release/$PRGNAM-$VERSION.tar.bz2
 
-NUMJOBS=${NUMJOBS:-" -j7 "}
-
 CWD=$(pwd)
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-fontconfig
@@ -117,7 +115,7 @@ CFLAGS=$SLKCFLAGS \
   --build=$ARCH-slackware-linux
 
 # Uses a currently non-functional sgml tool, thus '-i':
-make $NUMJOBS || make || exit 1
+make || make || exit 1
 make install DESTDIR=$PKG || exit 1
 
 # Upstream has changed the default templatedir to /usr/share/fontconfig/conf.avail.
