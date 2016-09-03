@@ -25,7 +25,7 @@
 # Modified again by Eric Fernandes Ferreira <candelabrus@gmail.com> for my personal Infinality Fonts Project
 
 PRGNAM=lxml
-VERSION=${VERSION:-3.6.0}
+VERSION=${VERSION:-3.6.4}
 BUILD=${BUILD:-1}
 
 if [ -z "$ARCH" ]; then
@@ -36,7 +36,7 @@ if [ -z "$ARCH" ]; then
   esac
 fi
 
-wget -c http://pypi.python.org/packages/source/l/lxml/$PRGNAM-$VERSION.tar.gz
+wget -c https://github.com/lxml/lxml/archive/$PRGNAM-$VERSION.tar.gz
 
 CWD=$(pwd)
 TMP=${TMP:-/tmp}
@@ -63,6 +63,7 @@ mkdir -p $TMP $PKG
 cd $TMP
 rm -rf $PRGNAM-$VERSION
 tar xvf $CWD/$PRGNAM-$VERSION.tar.gz
+mv $PRGNAM-$PRGNAM-$VERSION $PRGNAM-$VERSION
 cp -a $PRGNAM-$VERSION $PRGNAM-$VERSION-python2
 cd $PRGNAM-$VERSION-python2
 chown -R root:root .
@@ -95,7 +96,7 @@ find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | gr
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
-cp -a *.txt PKG-INFO doc/licenses/* doc/FAQ.txt $PKG/usr/doc/$PRGNAM-$VERSION
+cp -a *.txt doc/licenses/* doc/FAQ.txt $PKG/usr/doc/$PRGNAM-$VERSION
 rm $PKG/usr/doc/$PRGNAM-$VERSION/version.txt
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
