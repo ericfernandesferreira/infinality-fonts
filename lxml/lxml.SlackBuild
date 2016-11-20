@@ -81,7 +81,7 @@ python setup.py install --skip-build --root=$PKG --optimize=1
 if [ "${PYTHON3:-no}" == "yes" ]; then
   python3 setup.py build --with-unicode-strings
   LANG=en_US.UTF-8 make PYTHON=python3 test
-  python3 setup.py install --skip-build --root=$PKG
+  python3 setup.py install --skip-build --root=$PKG --optimize=1
 fi
 
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
