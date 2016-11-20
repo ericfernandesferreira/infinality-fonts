@@ -66,18 +66,6 @@ mkdir -p $TMP $PKG
 cd $TMP
 rm -rf $SRCNAM-$VERSION
 tar xvf $CWD/$SRCNAM-$VERSION.tar.gz
-cp -a $SRCNAM-$VERSION $SRCNAM-$VERSION-python2
-cd $SRCNAM-$VERSION-python2
-chown -R root:root .
-find -L . \
- \( -perm 777 -o -perm 775 -o -perm 750 -o -perm 711 -o -perm 555 \
-  -o -perm 511 \) -exec chmod 755 {} \; -o \
- \( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
-  -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
-
-python2 setup.py build
-
-cd -
 cd $SRCNAM-$VERSION
 chown -R root:root .
 find -L . \
@@ -86,20 +74,24 @@ find -L . \
  \( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
   -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
 
-if $(python3 -c 'import os' 2>/dev/null); then
-  python3 setup.py build
-fi
+# Python2
+python setup.py install --root=$PKG --optimize=1
 
-cd $TMP/$SRCNAM-$VERSION-python2
-python2 setup.py install --root=$PKG --optimize=1 --skip-build
-if $(python3 -c 'import os' 2>/dev/null); then
-  rm -rf $PKG/usr/lib$LIBDIRSUFFIX/python2.7/site-packages/bs4/tests
-fi
-
-cd $TMP/$SRCNAM-$VERSION
-if $(python3 -c 'import os' 2>/dev/null); then
-  python3 setup.py install --root=$PKG --optimize=1 --skip-build
-  rm -rf $PKG/usr/lib$LIBDIRSUFFIX/pyhton3.5/site-packages/bs4/{__pycache__,tests,builder/__pycache__}
+# Python3
+if $(python3 -c 'import sys' 2>/dev/null); then
+  cd $TMP
+  rm -rf $SRCNAM-$VERSION
+  tar xvf $CWD/$SRCNAM-$VERSION.tar.gz
+  cd $SRCNAM-$VERSION
+  chown -R root:root .
+  find -L . \
+   \( -perm 777 -o -perm 775 -o -perm 750 -o -perm 711 -o -perm 555 \
+    -o -perm 511 \) -exec chmod 755 {} \; -o \
+   \( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
+    -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
+  sed -i "s/-rfI/-rf/" convert-py3k
+  sh convert-py3k
+  python3 setup.py install --root=$PKG --optimize=1
 fi
 
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
