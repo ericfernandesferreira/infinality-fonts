@@ -75,7 +75,7 @@ find -L . \
 python setup.py install --root=$PKG --optimize=1
 
 # Python3
-if [ "${PYTHON3:-no}" == "yes" ]; then
+if $(python3 -c 'import os' 2>/dev/null); then
   python3 setup.py install --root=$PKG --optimize=1
 fi
 

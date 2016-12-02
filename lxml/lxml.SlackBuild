@@ -78,7 +78,7 @@ LANG=en_US.UTF-8 make PYTHON=python2 test
 python setup.py install --skip-build --root=$PKG --optimize=1
 
 # Python3
-if [ "${PYTHON3:-no}" == "yes" ]; then
+if $(python3 -c 'import os' 2>/dev/null); then
   python3 setup.py build --with-unicode-strings
   LANG=en_US.UTF-8 make PYTHON=python3 test
   python3 setup.py install --skip-build --root=$PKG --optimize=1
