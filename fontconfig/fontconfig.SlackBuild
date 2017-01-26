@@ -23,7 +23,7 @@
 # Modified again by Eric Fernandes Ferreira <candelabrus@gmail.com> for my personal Infinality Fonts Project
 
 PRGNAM=fontconfig
-VERSION=${VERSION:-2.11.95}
+VERSION=${VERSION:-2.11.1}
 BUILD=${BUILD:-1}
 
 # Automatically determine the architecture we're building on:
