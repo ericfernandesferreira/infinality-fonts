@@ -28,7 +28,7 @@
 
 PRGNAM=beautifulsoup
 SRCNAM=beautifulsoup4
-VERSION=${VERSION:-4.5.1}
+VERSION=${VERSION:-4.5.3}
 BUILD=${BUILD:-1}
 
 if [ -z "$ARCH" ]; then
