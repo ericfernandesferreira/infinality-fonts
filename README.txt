@@ -9,7 +9,7 @@ Esse source foi construído principalmente para quem quiser usar a última vers�
 do Infinality Fonts
 
 Requerimentos:
-- slackware64 current
+- slackware64 14.2
 
 Conteúdo:
 - beautifulsoup
@@ -37,7 +37,7 @@ This source was built primarily for those who want to use the latest version
 the Infinality Fonts
 
 Requirements:
-- slackware64 current
+- slackware64 14.2
 
 Contents:
 - beautifulsoup

@@ -22,6 +22,7 @@
 
 # Modified again by Eric Fernandes Ferreira <candelabrus@gmail.com> for my personal Infinality Fonts Project
 
+. /etc/profile.d/tetex.sh
 PRGNAM=fontconfig
 VERSION=${VERSION:-2.11.1}
 BUILD=${BUILD:-1}
@@ -205,6 +206,12 @@ cp -r $INFINALITY_BUNDLE/doc/fontconfig-infinality-ultimate \
 rm -f $PKG/usr/doc/fontconfig-$VERSION/INSTALL
 # empty file
 rm -f $PKG/usr/doc/fontconfig-$VERSION/NEWS
+# copy presets
+cp -r $INFINALITY_BUNDLE/fontconfig_patches/{combi,free,ms} \
+  $PKG/etc/fonts/conf.avail.infinality
+# install fc-presets
+cp  $INFINALITY_BUNDLE/fontconfig_patches/fc-presets \
+  $PKG/usr/bin/fc-presets
 
 mkdir $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
