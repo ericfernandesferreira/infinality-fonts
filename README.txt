@@ -21,8 +21,7 @@ Conteúdo:
 
 Como instalar:
 - você precisa baixar o .zip ou clonar o git
-- entre como root usando comando "su -" e então execute o script
-sh build-infinality-fonts.sh
+- então execute o script com o comando "sh build-infinality-fonts.sh"
 
 ------------------------------------------------------------------------------
 
@@ -49,5 +48,4 @@ Contents:
 
 How to install:
 - you need to download the .zip or clone git
-- login as root using the command "su -" and then run the script
-sh build-infinality-fonts.sh
+- then run the script "sh build-infinality-fonts.sh"
