@@ -36,7 +36,7 @@ if [ -z "$ARCH" ]; then
   esac
 fi
 
-wget -c https://pypi.python.org/packages/07/76/9f14811d3fb91ed7973a798ded15eda416070bbcb1aadc6a5af9d691d993/lxml-4.0.0.tar.gz#md5=c30d7e752cc909c1c0c40bd34153443a
+wget -c https://pypi.python.org/packages/89/dc/ec07a5adf6afb02ad4f5f7e1f7e1a2fc0e3d88ce4fe233ed4b3dabd07cbd/lxml-4.1.0.tar.gz#md5=247580bd5d942872bd972ad0086e5cbf
 
 CWD=$(pwd)
 TMP=${TMP:-/tmp}
