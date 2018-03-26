@@ -25,7 +25,7 @@
 # Modified again by Eric Fernandes Ferreira <candelabrus@gmail.com> for my personal Infinality Fonts Project
 
 PRGNAM=lxml
-VERSION=${VERSION:-4.1.1}
+VERSION=${VERSION:-4.2.1}
 BUILD=${BUILD:-1}
 
 if [ -z "$ARCH" ]; then
@@ -36,7 +36,7 @@ if [ -z "$ARCH" ]; then
   esac
 fi
 
-wget -c https://pypi.python.org/packages/e1/4c/d83979fbc66a2154850f472e69405572d89d2e6a6daee30d18e83e39ef3a/lxml-4.1.1.tar.gz#md5=0265ad6701951347f2dbbb470e3d1512
+wget -c https://pypi.python.org/packages/e8/5d/98f56e274bdf17f2e0d9016d1788ca80d26d8987dcd5e1d9416d86ee0625/lxml-4.2.1.tar.gz#md5=c266d9062e23b08f66426979a2b36f51
 
 CWD=$(pwd)
 TMP=${TMP:-/tmp}
